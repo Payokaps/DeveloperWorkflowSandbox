@@ -4,8 +4,25 @@ string? name = Console.ReadLine();
 int age = ReadValidAge();
 int ageNextYear = age + 1;
 
-Console.WriteLine($"Hello, {name}! Welcome to C#.");
+List<string> technologies = new List<string>();
+
+for (int i = 1; i <= 3; i++)
+{
+    Console.Write($"Enter technology #{i}: ");
+    string technology = Console.ReadLine() ?? "Unknown";
+
+    technologies.Add(technology);
+}
+
+Console.WriteLine($"\nHello, {name}! Welcome to C#.");
 Console.WriteLine($"Next year, you will be {ageNextYear} years old.");
+
+Console.WriteLine("\nYour learning plan:");
+
+for (int i = 0; i < technologies.Count; i++)
+{
+    Console.WriteLine($"{i + 1}. {technologies[i]}");
+}
 
 static int ReadValidAge()
 {
@@ -35,5 +52,6 @@ static int ReadValidAge()
 
     return age;
 }
+
 
 
