@@ -3,20 +3,15 @@ string name = Console.ReadLine() ?? "Unknown";
 
 int age = ReadValidAge();
 
-List<string> technologies = new List<string>();
+DeveloperProfile profile = new DeveloperProfile(name, age);
 
 for (int i = 1; i <= 3; i++)
 {
     Console.Write($"Enter technology #{i}: ");
     string technology = Console.ReadLine() ?? "Unknown";
 
-    technologies.Add(technology);
+    profile.AddTechnology(technology);
 }
-
-DeveloperProfile profile = new DeveloperProfile(
-    name,
-    age,
-    technologies);
 
 int ageNextYear = profile.GetAgeNextYear();
 

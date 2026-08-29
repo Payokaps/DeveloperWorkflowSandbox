@@ -1,19 +1,28 @@
 public class DeveloperProfile
 {
+    private readonly List<string> _technologies = new List<string>();
+
     public string Name { get; }
 
     public int Age { get; }
 
-    public List<string> Technologies { get; }
+    public IReadOnlyList<string> Technologies
+    {
+        get
+        {
+            return _technologies;
+        }
+    }
 
-    public DeveloperProfile(
-        string name,
-        int age,
-        List<string> technologies)
+    public DeveloperProfile(string name, int age)
     {
         Name = name;
         Age = age;
-        Technologies = technologies;
+    }
+
+    public void AddTechnology(string technology)
+    {
+        _technologies.Add(technology);
     }
 
     public int GetAgeNextYear()
