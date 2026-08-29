@@ -15,4 +15,9 @@ public class DeveloperProfile
         Age = age;
         Technologies = technologies;
     }
+
+    public int GetAgeNextYear()
+    {
+        return Age + 1;
+    }
 }

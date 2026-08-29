@@ -18,7 +18,7 @@ DeveloperProfile profile = new DeveloperProfile(
     age,
     technologies);
 
-int ageNextYear = profile.Age + 1;
+int ageNextYear = profile.GetAgeNextYear();
 
 Console.WriteLine($"\nHello, {profile.Name}! Welcome to C#.");
 Console.WriteLine($"Next year, you will be {ageNextYear} years old.");
@@ -58,7 +58,3 @@ static int ReadValidAge()
 
     return age;
 }
-
-
-
-
