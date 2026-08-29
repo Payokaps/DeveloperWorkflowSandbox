@@ -5,12 +5,19 @@ int age = ReadValidAge();
 
 DeveloperProfile profile = new DeveloperProfile(name, age);
 
-for (int i = 1; i <= 3; i++)
+while (profile.Technologies.Count < 3)
 {
-    Console.Write($"Enter technology #{i}: ");
-    string technology = Console.ReadLine() ?? "Unknown";
+    int technologyNumber = profile.Technologies.Count + 1;
 
-    profile.AddTechnology(technology);
+    Console.Write($"Enter technology #{technologyNumber}: ");
+    string? technology = Console.ReadLine();
+
+    bool wasAdded = profile.AddTechnology(technology);
+
+    if (!wasAdded)
+    {
+        Console.WriteLine("Technology cannot be empty. Please try again.");
+    }
 }
 
 int ageNextYear = profile.GetAgeNextYear();

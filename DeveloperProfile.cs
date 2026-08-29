@@ -20,9 +20,15 @@ public class DeveloperProfile
         Age = age;
     }
 
-    public void AddTechnology(string technology)
+    public bool AddTechnology(string? technology)
     {
-        _technologies.Add(technology);
+        if (string.IsNullOrWhiteSpace(technology))
+        {
+            return false;
+        }
+
+        _technologies.Add(technology.Trim());
+        return true;
     }
 
     public int GetAgeNextYear()
