@@ -1,8 +1,7 @@
 ﻿Console.Write("What is your name? ");
-string? name = Console.ReadLine();
+string name = Console.ReadLine() ?? "Unknown";
 
 int age = ReadValidAge();
-int ageNextYear = age + 1;
 
 List<string> technologies = new List<string>();
 
@@ -14,14 +13,21 @@ for (int i = 1; i <= 3; i++)
     technologies.Add(technology);
 }
 
-Console.WriteLine($"\nHello, {name}! Welcome to C#.");
+DeveloperProfile profile = new DeveloperProfile(
+    name,
+    age,
+    technologies);
+
+int ageNextYear = profile.Age + 1;
+
+Console.WriteLine($"\nHello, {profile.Name}! Welcome to C#.");
 Console.WriteLine($"Next year, you will be {ageNextYear} years old.");
 
 Console.WriteLine("\nYour learning plan:");
 
-for (int i = 0; i < technologies.Count; i++)
+for (int i = 0; i < profile.Technologies.Count; i++)
 {
-    Console.WriteLine($"{i + 1}. {technologies[i]}");
+    Console.WriteLine($"{i + 1}. {profile.Technologies[i]}");
 }
 
 static int ReadValidAge()
@@ -52,6 +58,7 @@ static int ReadValidAge()
 
     return age;
 }
+
 
 
 
